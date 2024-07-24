@@ -90,7 +90,7 @@ npm run balance-of
 npm run transfer
 ```
 
-### 11. Finished.
+### Finished.
 
 Github  : [sanztiva](https://github.com/sanztiva)
 
