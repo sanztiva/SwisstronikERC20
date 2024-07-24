@@ -7,7 +7,7 @@ Link : [Click!](https://www.swisstronik.com/testnet2/dashboard)
 ### 1. Clone Repository
 
 ```bash
-git clone https://github.com/sanztiva/SwisstronikLabs
+git clone https://github.com/sanztiva/SwisstronikERC20.git
 ```
 
 ```
