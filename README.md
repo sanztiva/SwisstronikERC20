@@ -11,7 +11,7 @@ git clone https://github.com/sanztiva/SwisstronikERC20.git
 ```
 
 ```
-cd hardhat-deploy-contract
+cd swisstronik-erc20-mint-token
 ```
 
 ### 2. Install Dependency
@@ -35,37 +35,22 @@ PRIVATE_KEY="your private key"
 - Copy this code and paste there
 
 ```
-/// SPDX-License-Identifier: UNLICENSED
-pragma solidity ^0.8.19;
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.20;
 
-//This contract is only intended for testing purposes
+import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 
-contract Swisstronik {
-    string private message;
+contract TestToken is ERC20 {
+    constructor()ERC20("PortToken","PORT"){}
 
-    /**
-     * @dev Constructor is used to set the initial message for the contract
-     * @param _message the message to associate with the message variable.
-     */
-    constructor(string memory _message) payable{
-        message = _message;
+    function mint1000tokens() public {
+        _mint(msg.sender,1000*10**18);
     }
 
-    /**
-     * @dev setMessage() updates the stored message in the contract
-     * @param _message the new message to replace the existing one
-     */
-    function setMessage(string memory _message) public {
-        message = _message;
+    function burn1000tokens() public{
+        _burn(msg.sender,1000*10**18);
     }
 
-    /**
-     * @dev getMessage() retrieves the currently stored message in the contract
-     * @return The message associated with the contract
-     */
-    function getMessage() public view returns(string memory){
-        return message;
-    }
 }
 ```
 
@@ -81,19 +66,31 @@ npm run compile
 npm run deploy
 ```
 
-### 7. Get Message
+### 7. Mint Token
 
 ```bash
-npm run get-message
+npm run mint
 ```
 
-### 8. Get Message
+### 8. Check Supply
 
 ```bash
-npm run set-message
+npm run check-supply
 ```
 
-### 9. Finsihed
+### 9. Check Balance
+
+```bash
+npm run balance-of
+```
+
+### 10. Transfer Token
+
+```bash
+npm run transfer
+```
+
+### 11. Finsihed
 
 Github  : [sanztiva](https://github.com/sanztiva)
 
