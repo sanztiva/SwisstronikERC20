@@ -1,25 +1,17 @@
-# Swisstronik Tesnet Techinal Task 2
+# Swisstronik Tesnet 2.0 // Techinal Task 02.
 
-link : [Click!](https://www.swisstronik.com/testnet2/dashboard)
-
-Feel free donate to my EVM address
-
-EVM :
-
-```bash
-0x9902C3A98Df4b240ad5496cC26F89bAb8058f4aE
-```
+Link : [Click!](https://www.swisstronik.com/testnet2/dashboard)
 
 ## Steps
 
 ### 1. Clone Repository
 
 ```bash
-git clone https://github.com/Mnuralim/swisstronik-erc20-mint-token.git
+git clone https://github.com/sanztiva/SwisstronikLabs
 ```
 
 ```
-cd swisstronik-erc20-mint-token
+cd hardhat-deploy-contract
 ```
 
 ### 2. Install Dependency
@@ -39,27 +31,41 @@ PRIVATE_KEY="your private key"
 ### 4. Create Smart Contract
 
 - Open contract folder
-- Create Token.sol file
+- Create Hello_swtr.sol file
 - Copy this code and paste there
-- Feel free to modify token name and token symbol
 
 ```
-// SPDX-License-Identifier: MIT
-pragma solidity ^0.8.20;
+/// SPDX-License-Identifier: UNLICENSED
+pragma solidity ^0.8.19;
 
-import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
+//This contract is only intended for testing purposes
 
-contract TestToken is ERC20 {
-    constructor()ERC20("IzzyToken","IZZY"){}
+contract Swisstronik {
+    string private message;
 
-    function mint1000tokens() public {
-        _mint(msg.sender,1000*10**18);
+    /**
+     * @dev Constructor is used to set the initial message for the contract
+     * @param _message the message to associate with the message variable.
+     */
+    constructor(string memory _message) payable{
+        message = _message;
     }
 
-    function burn1000tokens() public{
-        _burn(msg.sender,1000*10**18);
+    /**
+     * @dev setMessage() updates the stored message in the contract
+     * @param _message the new message to replace the existing one
+     */
+    function setMessage(string memory _message) public {
+        message = _message;
     }
 
+    /**
+     * @dev getMessage() retrieves the currently stored message in the contract
+     * @return The message associated with the contract
+     */
+    function getMessage() public view returns(string memory){
+        return message;
+    }
 }
 ```
 
@@ -75,38 +81,20 @@ npm run compile
 npm run deploy
 ```
 
-### 7. Mint Token
+### 7. Get Message
 
 ```bash
-npm run mint
+npm run get-message
 ```
 
-### 8. Check Supply
+### 8. Get Message
 
 ```bash
-npm run check-supply
+npm run set-message
 ```
 
-### 9. Check Balance
+### 9. Finsihed
 
-```bash
-npm run balance-of
-```
+Github  : [sanztiva](https://github.com/sanztiva)
 
-### 10. Tranfer Token
-
-```bash
-npm run transfer
-```
-
-### 11. Finsihed
-
-- Open the deployed-adddress.ts (location in utils folder)
-- Copy the address and paste the address in testnet dashboard
-- push this project to your github and paste your repository link in testnet dashboard
-
-by :
-github : [Mnuralim](https://github.com/Mnuralim)
-twitter : @Izzycracker04
-telegram : @fitriay19
-//0x37401D115bC52bBdaa59Df7f7e021523b020F98f
+Address Testnet Swisstronik 0x499da0675ddAE1589c6A4FC9BD6E254b4E8844dB
